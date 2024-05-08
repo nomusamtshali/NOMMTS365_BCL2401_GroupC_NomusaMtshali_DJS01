@@ -22,14 +22,13 @@ const vel2 = calcNewVel(vel, acc, time) //calculates new velocity based on accel
 // Pick up an error with how the function below is called and make it robust to such errors
 function calcNewVel  (vel, acc, time) {
   const newAcc = acc * ( 3600 / 1000) // converting m/s^2 to km/h^2 
-  return vel + (newAcc*time) // calculate the new velocity based on the initial velocity (vel), the converted acceleration (newAcc), and the time (time).
+  
+  return vel + (acc*time) // calculate the new velocity based on the initial velocity (vel), the converted acceleration (newAcc), and the time (time).
 }
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
 console.log(`Corrected New Distance: ${d2} km`);
 console.log(`Corrected Remaining Fuel: ${rf} kg`);
-
-
 
 
 
