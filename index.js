@@ -14,19 +14,19 @@ const fuel = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
 
-const d2 = d + (vel*(time / 3600)) //calculates new distance
-const rf = fuel - (fbr*time) //calculates remaining fuel
+const distance2 = distance + (velocity * (time / 3600)) //calculates new distance
+const remainingFuel = fuel - (fuelBurnRate * time) //calculates remaining fuel
 
-const vel2 = calcNewVel(vel, acc, time) //calculates new velocity based on acceleration
+const velocity2 = calculateNewVelocity(velocity, acceleration, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-function calcNewVel  (vel, acc, time) {
-  return vel + (acc*time) // calculate the new velocity based on the initial velocity (vel), the converted acceleration (newAcc), and the time (time).
+function calculateNewVelocity  (velocity, acceleration, time) {
+  return velocity + (acceleration * time) // calculate the new velocity based on the initial velocity (vel), the converted acceleration (newAcc), and the time (time).
 }
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
+console.log(`Corrected New Velocity: ${velocity2} km/h`);
+console.log(`Corrected New Distance: ${distance2} km`);
+console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
 
 
 
