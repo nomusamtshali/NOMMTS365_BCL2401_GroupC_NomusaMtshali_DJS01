@@ -16,7 +16,7 @@ const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 const distance2 = distance + (velocity * (time / 3600)) //calculates new distance
 const remainingFuel = fuel - (fuelBurnRate * time) //calculates remaining fuel
 
-const newAcceleration = acceleration * (3600 / 1000); // converting m/s^2 to km/h^2
+const newAcceleration = acceleration * (3600 / 1000) ; // converting m/s^2 to km/h^2
 
 const velocity2 = calculateNewVelocity(velocity, newAcceleration, time) //calculates new velocity based on acceleration
 
@@ -24,6 +24,14 @@ const velocity2 = calculateNewVelocity(velocity, newAcceleration, time) //calcul
 function calculateNewVelocity  (velocity, newAcceleration, time) {
   return velocity + (newAcceleration * time) // calculate the new velocity based on the initial velocity (vel), the converted acceleration (newAcc), and the time (time).
 }
+try {
+  if (calculateNewVelocity(velocity, newAcceleration, time) !== velocity + (newAcceleration * time))
+    {
+      throw new Error('Incorrect unit of measurement used!')
+    }
+} catch (error) {
+  console.error(`Error:${error.message}`)
+} 
 
 console.log(`Corrected New Velocity: ${velocity2} km/h`);
 console.log(`Corrected New Distance: ${distance2} km`);
